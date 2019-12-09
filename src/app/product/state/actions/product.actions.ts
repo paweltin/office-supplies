@@ -12,19 +12,22 @@ export enum ProductActionTypes {
 export class LoadProduct implements Action {
   readonly type = ProductActionTypes.LoadProduct;
 
-  constructor(public payload: number) {}
+  constructor(public payload: number) {
+  }
 }
 
 export class SetProduct implements Action {
   readonly type = ProductActionTypes.SetProduct;
 
-  constructor(public payload: Product) {}
+  constructor(public payload: Product) {
+  }
 }
 
 export class SetImageAsMain implements Action {
   readonly type = ProductActionTypes.SetImageAsMain;
 
-  constructor(public payload: number) {}
+  constructor(public payload: number) {
+  }
 }
 
 

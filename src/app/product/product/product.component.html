@@ -51,7 +51,7 @@
 
   <ul class="product-gallery__list">
     <li class="product-gallery__item" *ngFor="let image of (product$ | async).images; index as i">
-      <img [src]="image.src" [alt]="image.alt" (click)="setImageAsMain($event)" [attr.data-index]="i" />
+      <img [src]="image.src" [alt]="image.alt" (click)="setImageAsMain($event)" [attr.data-index]="i"/>
     </li>
   </ul>
 </div>

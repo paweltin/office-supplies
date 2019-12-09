@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './header/header.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FooterComponent} from './footer/footer.component';
-import { AsideComponent } from './aside/aside.component';
+import {AsideComponent} from './aside/aside.component';
 
 
 @NgModule({
