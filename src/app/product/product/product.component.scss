@@ -1,0 +1,49 @@
+@import "scss/variables";
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  &__details {
+    flex: 2;
+  }
+
+  &__gallery {
+    flex: 1;
+    order: -1;
+    margin-right: $gutter;
+  }
+
+  &__features {
+    flex: 0 0 100%;
+    display: flex;
+    margin: 0 $gutter/2;
+  }
+
+  &__feature {
+    flex: 1;
+    margin: 0 $gutter/2;
+  }
+}
+
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $gutter-large;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex: 0 0 calc(33% - #{$gutter/2});
+
+    &--main {
+      flex: 1 0 100%;
+      margin-bottom: $gutter;
+    }
+  }
+}

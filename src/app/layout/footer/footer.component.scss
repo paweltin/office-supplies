@@ -1,0 +1,27 @@
+@import "scss/variables";
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: $gutter-large;
+  padding: $gutter $gutter-large;
+  background: #eee;
+
+  &__logo {
+    flex: 1 0 100%;
+  }
+
+  &__copy {
+    flex: 2;
+  }
+
+  &__bestsellers {
+    flex: 1;
+    margin: 0 $gutter-large;
+  }
+
+  &__social {
+    flex: 1;
+  }
+}

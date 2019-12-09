@@ -1,0 +1,9 @@
+@import "scss/variables";
+
+:host {
+  order: -1;
+  flex: 0 0 200px;
+  margin-right: $gutter-large;
+  padding: $gutter;
+  background: #f0f0f0;
+}
