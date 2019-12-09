@@ -44,18 +44,14 @@
 
 <div class="product__gallery product-gallery">
   <div class="product-gallery__item product-gallery__item--main">
-    <img src="/assets/products/paper/paper1.jpg" alt="Paper1"/>
+    <img
+      [src]="(product$ | async).images[(product$ | async).activeImage].src"
+      [alt]="(product$ | async).images[(product$ | async).activeImage].alt"/>
   </div>
 
   <ul class="product-gallery__list">
-    <li class="product-gallery__item">
-      <img src="/assets/products/paper/paper1.jpg" alt="Paper1"/>
-    </li>
-    <li class="product-gallery__item">
-      <img src="/assets/products/paper/paper2.jpg" alt="Paper2"/>
-    </li>
-    <li class="product-gallery__item">
-      <img src="/assets/products/paper/paper3.jpg" alt="Paper3"/>
+    <li class="product-gallery__item" *ngFor="let image of (product$ | async).images; index as i">
+      <img [src]="image.src" [alt]="image.alt" (click)="setImageAsMain($event)" [attr.data-index]="i" />
     </li>
   </ul>
 </div>

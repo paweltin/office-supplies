@@ -129,6 +129,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "office-supplies"
+    }
+  },
+  "defaultProject": "office-supplies",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
