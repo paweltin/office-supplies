@@ -1,4 +1,4 @@
-import {ProductActions, ProductActionTypes, SetImageAsMain} from '../actions/product.actions';
+import {ProductActions, ProductActionTypes} from '../actions/product.actions';
 import * as fromRoot from '../../../reducers';
 import {Product} from '../../interface/product';
 
@@ -15,8 +15,14 @@ export interface ProductState {
 export const initialState: ProductState = {
   product: {
     id: null,
+    name: '',
+    price: null,
+    priceOld: null,
     images: [],
-    activeImage: 0
+    activeImage: null,
+    variants: [],
+    desc: '',
+    features: [],
   },
 };
 

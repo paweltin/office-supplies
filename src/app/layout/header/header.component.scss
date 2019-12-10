@@ -16,7 +16,7 @@
 
 .header-menu {
   display: flex;
-  margin: $gutter -$gutter 0;
+  margin: $gutter -#{$gutter} 0;
 
   &__item {
     margin: 0 $gutter;
