@@ -20,15 +20,15 @@ export class ProductService {
       priceOld: 670,
       images: [
         {
-          src: '/assets/products/paper/paper1.jpg',
+          src: 'assets/products/paper/paper1.jpg',
           alt: 'Paper1',
         },
         {
-          src: '/assets/products/paper/paper2.jpg',
+          src: 'assets/products/paper/paper2.jpg',
           alt: 'Paper2',
         },
         {
-          src: '/assets/products/paper/paper3.jpg',
+          src: 'assets/products/paper/paper3.jpg',
           alt: 'Paper3',
         },
       ],

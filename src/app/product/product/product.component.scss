@@ -8,11 +8,6 @@ $product-invert-bg: #fff;
 
 $gallery-width: 300px;
 
-:host {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .product {
   &__details {
     flex: 2;
@@ -135,12 +130,15 @@ $gallery-width: 300px;
   margin-bottom: $gutter-large;
 
   &__list {
+    flex-grow: 1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 
   &__item {
     flex: 0 0 calc(33% - #{$gutter/2});
+    width: 30%;
 
     &--main {
       flex: 1 0 100%;
