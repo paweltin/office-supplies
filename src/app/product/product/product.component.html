@@ -1,9 +1,9 @@
-<div class="product__details">
-  <h1 class="product__name">{{(product$ | async).name}}</h1>
+<div class="product__details h-product">
+  <h1 class="product__name p-name">{{(product$ | async).name}}</h1>
 
   <form class="product-basket">
     <div>
-      <span class="product-basket__price">{{formatPrice((product$ | async).price)}}</span>
+      <span class="product-basket__price p-price">{{formatPrice((product$ | async).price)}}</span>
       <span class="product-basket__price-old">{{formatPrice((product$ | async).priceOld)}}</span>
     </div>
 
@@ -24,6 +24,7 @@
     <div class="product-gallery__item product-gallery__item--main">
       <div *ngIf="(product$ | async).activeImage !== null">
         <img
+          class="u-photo"
           [src]="(product$ | async).images[(product$ | async).activeImage].src"
           [alt]="(product$ | async).images[(product$ | async).activeImage].alt"/>
       </div>
@@ -37,7 +38,7 @@
   </div>
 
   <div class="product__desc-wrapper">
-    <div [className]="'product__desc' + (showFullDesc ? ' product__desc--full' : '')"
+    <div [className]="'product__desc e-description' + (showFullDesc ? ' product__desc--full' : '')"
          [innerHTML]="(product$ | async).desc"></div>
 
     <a class="product__desc-more"
