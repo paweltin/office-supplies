@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
 import * as fromCart from '../reducers/cart.reducer';
 
 export const selectCartState = createFeatureSelector<fromCart.CartState>(
@@ -7,10 +7,10 @@ export const selectCartState = createFeatureSelector<fromCart.CartState>(
 
 export const getProducts = createSelector(
   selectCartState,
-  state =>  state.products
+  state => state.products
 );
 
 export const getPending = createSelector(
   selectCartState,
-  state =>  state.pending
+  state => state.pending
 );

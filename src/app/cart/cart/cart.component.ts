@@ -21,12 +21,12 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.store.pipe(select(fromCartSelectors.getProducts)).subscribe(
-        products => {
-          this.amount = products.reduce(pv => pv + 1, 0);
-          this.total = products.reduce((pv, cv) => pv + cv.price, 0);
-        }
-      );
+    this.store.pipe(select(fromCartSelectors.getProducts)).subscribe(
+      products => {
+        this.amount = products.reduce(pv => pv + 1, 0);
+        this.total = products.reduce((pv, cv) => pv + cv.price, 0);
+      }
+    );
   }
 
 }

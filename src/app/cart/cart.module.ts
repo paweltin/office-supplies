@@ -2,10 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CartComponent} from './cart/cart.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { StoreModule } from '@ngrx/store';
+import {StoreModule} from '@ngrx/store';
 import * as fromCart from './state/reducers/cart.reducer';
-import { EffectsModule } from '@ngrx/effects';
-import { CartEffects } from './state/effects/cart.effects';
+import {EffectsModule} from '@ngrx/effects';
+import {CartEffects} from './state/effects/cart.effects';
 
 
 @NgModule({
