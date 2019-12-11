@@ -1,27 +1,88 @@
 @import "scss/variables";
+@import "scss/mixins";
+
+$footer-border: $grey-light;
 
 .footer {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: $gutter-large;
-  padding: $gutter $gutter-large;
-  background: #eee;
+  @include responsive-width();
+  margin: 0 auto;
+  padding: $gutter 0;
 
-  &__logo {
-    flex: 1 0 100%;
+  @include breakpoint-up(sm) {
+    flex-direction: row;
+  }
+
+  &__container {
+    position: relative;
+    margin-top: $gutter-large;
+    padding: 0 $gutter;
+    border-top: 1px solid $footer-border;
+    background: lighten($footer-border, 20%);
+
+    @include breakpoint-up(sm) {
+      padding: 0;
+    }
   }
 
   &__copy {
     flex: 2;
+    font-size: $font-size * .9;
+    line-height: 1.2;
+    color: lighten($text-color, 10%);
+  }
+
+  &__logo {
+    width: 150px;
+    margin-bottom: $gutter;
+  }
+
+  &__bestsellers, &__social {
+    flex: 1;
+
+    h4 {
+      font-weight: 700;
+      margin-bottom: $gutter;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      a {
+        display: block;
+      }
+    }
   }
 
   &__bestsellers {
     flex: 1;
-    margin: 0 $gutter-large;
+    margin: $gutter 0;
+
+    @include breakpoint-up(sm) {
+      margin: 0 $gutter-large * 2;
+    }
+
+    ul {
+      li {
+        flex: 0 0 50%;
+      }
+    }
   }
 
   &__social {
-    flex: 1;
+    ul {
+      li {
+        font-size: $font-size * 1.2;
+        margin-right: 8px;
+      }
+    }
   }
 }

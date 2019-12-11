@@ -1,41 +1,56 @@
 <div class="product__details">
-  <h1>{{(product$ | async).name}}</h1>
+  <h1 class="product__name">{{(product$ | async).name}}</h1>
 
-  <form>
+  <form class="product-basket">
     <div>
-      <span>{{formatPrice((product$ | async).price)}}</span>
-      <span>{{formatPrice((product$ | async).priceOld)}}</span>
+      <span class="product-basket__price">{{formatPrice((product$ | async).price)}}</span>
+      <span class="product-basket__price-old">{{formatPrice((product$ | async).priceOld)}}</span>
     </div>
 
-    <select>
+    <select class="product-basket__variants">
       <option *ngFor="let variant of (product$ | async).variants">{{variant}}</option>
     </select>
 
-    <button (click)="addToCart($event)">Buy</button>
+    <button class="product-basket__button" [disabled]="cartPending$ | async" (click)="addToCart($event)">
+      <ng-container *ngIf="cartPending$ | async; else buy">
+        <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
+      </ng-container>
+
+      <ng-template #buy>Buy</ng-template>
+    </button>
   </form>
 
-  <div [innerHTML]="(product$ | async).desc"></div>
-
-  <a [className]="'product__description' + (showFullDesc ? ' product__description--full' : '')"
-     (click)="toggleShowFullDesc($event)" href="#">Read {{showFullDesc ? 'less': 'more'}}</a>
-</div>
-
-<div class="product__gallery product-gallery">
-  <div class="product-gallery__item product-gallery__item--main">
-    <div *ngIf="(product$ | async).activeImage !== null">
-      <img
-        [src]="(product$ | async).images[(product$ | async).activeImage].src"
-        [alt]="(product$ | async).images[(product$ | async).activeImage].alt"/>
+  <div class="product__gallery product-gallery">
+    <div class="product-gallery__item product-gallery__item--main">
+      <div *ngIf="(product$ | async).activeImage !== null">
+        <img
+          [src]="(product$ | async).images[(product$ | async).activeImage].src"
+          [alt]="(product$ | async).images[(product$ | async).activeImage].alt"/>
+      </div>
     </div>
+
+    <ul class="product-gallery__list">
+      <li class="product-gallery__item" *ngFor="let image of (product$ | async).images; index as i">
+        <img [src]="image.src" [alt]="image.alt" (click)="setImageAsMain($event)" [attr.data-index]="i"/>
+      </li>
+    </ul>
   </div>
 
-  <ul class="product-gallery__list">
-    <li class="product-gallery__item" *ngFor="let image of (product$ | async).images; index as i">
-      <img [src]="image.src" [alt]="image.alt" (click)="setImageAsMain($event)" [attr.data-index]="i"/>
-    </li>
-  </ul>
+  <div class="product__desc-wrapper">
+    <div [className]="'product__desc' + (showFullDesc ? ' product__desc--full' : '')"
+         [innerHTML]="(product$ | async).desc"></div>
+
+    <a class="product__desc-more"
+       (click)="toggleShowFullDesc($event)" href="#">Read {{showFullDesc ? 'less': 'more'}}</a>
+  </div>
 </div>
 
 <div class="product__features">
   <div class="product__feature" *ngFor="let feature of (product$ | async).features" [innerHTML]="feature"></div>
 </div>
+
+<ng-container *ngIf="productPending$ | async">
+  <div class="product__loading">
+    <fa-icon [icon]="faSpinner" [spin]="true"></fa-icon>
+  </div>
+</ng-container>

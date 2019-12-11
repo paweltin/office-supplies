@@ -1,0 +1,13 @@
+@mixin breakpoint-up($breakpoint: sm) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin responsive-width() {
+  @each $key, $breakpoint in $breakpoints {
+    @include breakpoint-up($key) {
+      width: $breakpoint - $gutter-large * 2;
+    }
+  }
+}

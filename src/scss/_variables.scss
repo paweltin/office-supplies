@@ -1,2 +1,24 @@
 $gutter: 15px;
 $gutter-large: 2 * $gutter;
+
+$purple: #A00D5B;
+$yellow: #F0DB44;
+$pink: #ED2B91;
+$blue: #1591A0;
+$blue-light: #0FA7BA;
+$grey-light: #bdbdbd;
+$grey-dark: #303030;
+
+$breakpoints: (
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+);
+
+$font-size: 16px;
+$text-color: $grey-dark;
+$link-color: $blue;
+$link-color-hover: $blue-light;
+
+$border-radius: 5px;
+$transition-duration: .2s;

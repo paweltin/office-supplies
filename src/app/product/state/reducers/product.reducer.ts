@@ -10,6 +10,7 @@ export interface State extends fromRoot.State {
 
 export interface ProductState {
   product: Product;
+  pending: boolean;
 }
 
 export const initialState: ProductState = {
@@ -24,15 +25,23 @@ export const initialState: ProductState = {
     desc: '',
     features: [],
   },
+  pending: false,
 };
 
 export function reducer(state = initialState, action: ProductActions): ProductState {
   switch (action.type) {
 
+    case ProductActionTypes.LoadProduct:
+      return {
+        ...state,
+        pending: true,
+      };
+
     case ProductActionTypes.SetProduct:
       return {
         ...state,
         product: action.payload,
+        pending: false,
       };
 
     case ProductActionTypes.SetImageAsMain:

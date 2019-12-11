@@ -1,6 +1,6 @@
-<div class="header__cart">
-  <fa-icon [icon]="faShoppingCart"></fa-icon>
-  <span>{{amount}}st</span>
-  <strong>{{formatPrice(total)}}</strong>
-  <a href="#">Checkout</a>
+<div class="cart">
+  <fa-icon class="cart__icon" [icon]="faShoppingCart"></fa-icon>
+  <span class="cart__amount">{{amount}} <span class="cart__amount-suffix">st</span></span>
+  <strong class="cart__total">{{formatPrice(total)}}</strong>
+  <a class="cart__checkout" href="#">Checkout</a>
 </div>

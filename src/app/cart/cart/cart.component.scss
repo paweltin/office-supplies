@@ -1,0 +1,70 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+$cart-icon-color: $purple;
+$cart-badge-bg: $yellow;
+
+.cart {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__icon {
+    font-size: $font-size * 2;
+    color: $cart-icon-color;
+
+    @include breakpoint-up(sm) {
+      margin-right: $gutter;
+    }
+  }
+
+  &__amount {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    padding: 5px;
+    color: $cart-icon-color;
+    border-radius: $border-radius;
+    background: rgba($cart-badge-bg, .9);
+
+    @include breakpoint-up(sm) {
+      position: static;
+      margin-right: $gutter;
+      padding: 0;
+      color: initial;
+      background: none;
+    }
+  }
+
+  &__amount-suffix {
+    display: none;
+
+    @include breakpoint-up(sm) {
+      display: inline;
+    }
+  }
+
+  &__total {
+    display: none;
+    margin-right: $gutter;
+
+    @include breakpoint-up(sm) {
+      display: block;
+    }
+  }
+
+  &__checkout {
+    display: none;
+    color: $cart-icon-color;
+    transition: color $transition-duration;
+
+    @include breakpoint-up(sm) {
+      display: block;
+    }
+
+    &:hover {
+      color: $pink;
+    }
+  }
+}

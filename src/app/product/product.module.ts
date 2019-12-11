@@ -5,6 +5,7 @@ import {StoreModule} from '@ngrx/store';
 import * as fromProduct from './state/reducers/product.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {ProductEffects} from './state/effects/product.effects';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {ProductEffects} from './state/effects/product.effects';
   imports: [
     CommonModule,
     StoreModule.forFeature(fromProduct.productFeatureKey, fromProduct.reducer),
-    EffectsModule.forFeature([ProductEffects])
+    EffectsModule.forFeature([ProductEffects]),
+    FontAwesomeModule
   ]
 })
 export class ProductModule {

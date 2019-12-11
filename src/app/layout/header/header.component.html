@@ -1,28 +1,38 @@
-<header class="header">
-  <div class="header__logo">
-    <img src="/assets/OfficeSupplies.svg" alt="OfficeSupplies"/>
+<header class="header__container">
+  <div class="header">
+    <fa-icon class="header__mobile-menu" [icon]="faBars"></fa-icon>
+
+    <div class="header__logo">
+      <img src="/assets/OfficeSupplies.svg" alt="OfficeSupplies"/>
+    </div>
+
+    <div class="header__search">
+      <form class="header-search">
+        <input class="header-search__input" placeholder="Search..."/>
+        <button class="header-search__button">
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+      </form>
+    </div>
+
+    <div class="header__cart">
+      <app-cart></app-cart>
+    </div>
+
+    <nav class="header__nav">
+      <ul class="header-menu">
+        <li>
+          <a class="header-menu__item" href="#">All our products</a>
+        </li>
+
+        <li>
+          <a class="header-menu__item" href="#">Inspiration for the office</a>
+        </li>
+
+        <li>
+          <a class="header-menu__item" href="#">About OS</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-
-  <form class="header__search">
-    <input type="search" placeholder="Search..."/>
-    <button>Search</button>
-  </form>
-
-  <app-cart></app-cart>
-
-  <nav class="header__nav">
-    <ul class="header-menu">
-      <li class="header-menu__item">
-        <a href="#">All our products</a>
-      </li>
-
-      <li class="header-menu__item">
-        <a href="#">Inspiration for the office</a>
-      </li>
-
-      <li class="header-menu__item">
-        <a href="#">About OS</a>
-      </li>
-    </ul>
-  </nav>
 </header>

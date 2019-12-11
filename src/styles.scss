@@ -1,7 +1,36 @@
 @import "scss/variables";
+@import "scss/mixins";
 @import "scss/reset";
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Lato, sans-serif;
+  font-size: $font-size;
+  color: $text-color;
+}
 
 img {
   display: block;
   max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
+  transition: color $transition-duration;
+
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
+.container {
+  width: calc(100% - #{$gutter-large});
+  display: flex;
+  justify-content: space-between;
 }

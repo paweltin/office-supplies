@@ -1,6 +1,18 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .main {
   display: flex;
-  margin: 0 $gutter-large;
+  @include responsive-width();
+  margin: 0 auto;
+  padding: 0 $gutter;
+
+  @include breakpoint-up(sm) {
+    padding: 0;
+  }
+}
+
+.section {
+  position: relative;
+  flex-grow: 1;
 }

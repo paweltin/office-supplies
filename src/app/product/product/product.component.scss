@@ -1,4 +1,12 @@
 @import "scss/variables";
+@import "scss/mixins";
+
+$product-border: $grey-light;
+$product-color: $purple;
+$product-color-focus: $pink;
+$product-invert-bg: #fff;
+
+$gallery-width: 300px;
 
 :host {
   display: flex;
@@ -10,27 +18,120 @@
     flex: 2;
   }
 
+  &__name {
+    margin-bottom: $gutter-large;
+    font-size: $font-size * 2;
+    font-weight: 700;
+
+    @include breakpoint-up(md) {
+      margin-left: $gallery-width + $gutter;
+    }
+  }
+
   &__gallery {
-    flex: 1;
-    order: -1;
-    margin-right: $gutter;
+    @include breakpoint-up(md) {
+      float: left;
+      margin: {
+        top: -169px;
+        right: $gutter;
+      }
+      width: 300px;
+    }
+  }
+
+  &__desc-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__desc {
+    position: relative;
+    height: 235px;
+    margin-bottom: $gutter;
+    overflow: hidden;
+    line-height: 1.4;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: $gutter-large;
+      background: linear-gradient(to top, #fff, rgba(#fff, 0));
+      content: '';
+    }
+
+    &--full {
+      height: auto;
+
+      &:after {
+        content: none;
+      }
+    }
+
+    ::ng-deep p {
+      &:not(:last-child) {
+        margin-bottom: $gutter;
+      }
+    }
+  }
+
+  &__desc-more {
+    align-self: center;
+    display: inline-block;
+    margin-bottom: $gutter-large;
   }
 
   &__features {
-    flex: 0 0 100%;
+    flex: 1 0 100%;
     display: flex;
-    margin: 0 $gutter/2;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include breakpoint-up(md) {
+      flex-direction: row;
+      margin: 0 -#{$gutter/2};
+    }
   }
 
   &__feature {
     flex: 1;
-    margin: 0 $gutter/2;
+    margin: 0 0 $gutter;
+    padding: $gutter;
+    line-height: 1.4;
+    border: 1px solid $product-border;
+    background: url('~src/assets/img/paper1.jpg') no-repeat;
+    background-size: cover;
+
+    @include breakpoint-up(md) {
+      margin: 0 $gutter/2;
+    }
+
+    ::ng-deep h2 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size * 10;
+    color: $product-color;
+    background: $product-invert-bg;
   }
 }
 
 .product-gallery {
   display: flex;
   flex-wrap: wrap;
+  align-self: flex-start;
   margin-bottom: $gutter-large;
 
   &__list {
@@ -48,6 +149,70 @@
 
     &:not(&--main) {
       cursor: pointer;
+    }
+  }
+}
+
+.product-basket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $gutter-large;
+  padding: $gutter;
+  border: 1px solid $product-border;
+  background: lighten($product-border, 20%);
+
+  @include breakpoint-up(md) {
+    margin-left: $gallery-width + $gutter;
+  }
+
+  &__price {
+    display: block;
+    margin-bottom: 5px;
+    font-size: $font-size * 1.5;
+  }
+
+  &__price-old {
+    font-style: italic;
+    text-decoration: line-through;
+    color: lighten($text-color, 15%);
+  }
+
+  &__variants {
+    flex-grow: 1;
+    height: 40px;
+    margin: 0 $gutter;
+    padding: 0 $gutter;
+    font-size: $font-size;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid $product-color;
+    border-radius: $border-radius;
+    background: $product-invert-bg;
+    transition: border-color $transition-duration;
+
+    &:active {
+      border-color: $product-color-focus;
+    }
+  }
+
+  &__button {
+    width: 120px;
+    height: 40px;
+    font-size: $font-size;
+    color: $product-invert-bg;
+    cursor: pointer;
+    border: none;
+    border-radius: $border-radius;
+    background: $product-color;
+    transition: background-color $transition-duration;
+
+    &:hover:not(:disabled) {
+      background-color: $product-color-focus;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
     }
   }
 }

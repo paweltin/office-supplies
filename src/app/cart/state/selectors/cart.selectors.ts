@@ -9,3 +9,8 @@ export const getProducts = createSelector(
   selectCartState,
   state =>  state.products
 );
+
+export const getPending = createSelector(
+  selectCartState,
+  state =>  state.pending
+);

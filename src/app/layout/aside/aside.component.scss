@@ -1,9 +1,31 @@
 @import "scss/variables";
+@import "scss/mixins";
+
+$aside-border: $grey-light;
 
 :host {
+  display: none;
   order: -1;
   flex: 0 0 200px;
   margin-right: $gutter-large;
-  padding: $gutter;
-  background: #f0f0f0;
+
+  @include breakpoint-up(sm) {
+    display: block;
+  }
+}
+
+.aside {
+  padding: $gutter/2 0;
+  border: 1px solid $aside-border;
+  background: lighten($aside-border, 20%);
+
+  &__item {
+    display: block;
+    padding: $gutter / 2 $gutter;
+    transition: background-color $transition-duration;
+
+    &--active, &:hover {
+      background: #fff;
+    }
+  }
 }

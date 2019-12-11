@@ -68,6 +68,6 @@ export class ProductService {
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor
       sit amet la.</p>`
       ],
-    }).pipe(delay(1000));
+    }).pipe(delay(2000));
   }
 }
